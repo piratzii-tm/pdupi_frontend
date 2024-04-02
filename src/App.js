@@ -1,7 +1,12 @@
+import Navigation from "./navigation/navigation";
+import VerifyAuthentication from "./wrappers/VerifyAuthentication";
+
 const App = () => {
   return (
-    <div></div>
+    <VerifyAuthentication>
+      <Navigation />
+    </VerifyAuthentication>
   );
-}
+};
 
 export default App;
