@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import { useContext } from "react";
 import { AuthenticationProvider } from "../constants/contexts/AuthenticationProvider";
 import { ComponentsScreen } from "./screens/auth/ComponentsScreen";
+import TrainersScreen from "./screens/TrainersScreen";
 
 const Navigation = () => {
   const { isLogged } = useContext(AuthenticationProvider);
@@ -16,10 +17,13 @@ const Navigation = () => {
           <Route path="/" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/components" element={<ComponentsScreen />} />
+          {/*TODO remove Trainers root*/}
+          <Route path={"/trainers"} element={<TrainersScreen />} />
         </Routes>
       ) : (
         <Routes>
           <Route path={"/"} element={<HomeScreen />} />
+          <Route path={"/trainers"} element={<TrainersScreen />} />
         </Routes>
       )}
     </BrowserRouter>
