@@ -5,7 +5,7 @@ const KClientClassCard = ({ image, nume = "Nume", prenume = "Prenume" }) => {
   return (
     <div
       className={
-        "flex flex-col p-2 justify-between border-4 border-barberry w-fit rounded-2xl"
+        "flex flex-col p-2 justify-between border-4 border-barberry w-fit h-fit rounded-2xl"
       }
     >
       {/*TODO: Implement the 3 bunbu logic*/}
@@ -20,7 +20,7 @@ const KClientClassCard = ({ image, nume = "Nume", prenume = "Prenume" }) => {
       <div className={"flex flex-col justify-between items-center"}>
         <img
           src={image}
-          alt={"../assets/images/placeholder.png"}
+          alt={"image"}
           className={"rounded-full mx-4 m-2"}
           height={150}
           width={150}
