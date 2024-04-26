@@ -3,12 +3,18 @@ import KTextInput from "../../../components/KTextInput";
 import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { KHeader } from "../../../components/KHeader";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
   return (
     <body className={"flex h-full p-4 flex-col bg-gray-500 gap-2"}>
+      <text className={"text-2xl font-bold"}>KHeader</text>
+      <KHeader title={"Title"} />
+      <KHeader client />
+      <KHeader trainer />
+
       <text className={"text-2xl font-bold"}>KButton</text>
       <div className={"flex flex-col"}>
         <text>No params</text>
