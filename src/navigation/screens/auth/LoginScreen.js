@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useAuthentication } from "../../../hooks/useAuthentication";
+import { useBackend } from "../../../hooks/useBackend";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { client } = useAuthentication();
+  const { client } = useBackend();
 
   return (
     <form onSubmit={(event) => client.login({ event, email, password })}>

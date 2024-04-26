@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
-import { fetchUserData } from "../../constants/helpers/fetchCurrentUser";
-import { useAuthentication } from "../../hooks/useAuthentication";
+import { useBackend } from "../../hooks/useBackend";
 
 const HomeScreen = () => {
   const [userData, setUserData] = useState(null);
-  const { handleLogout } = useAuthentication();
+  const { client } = useBackend();
 
   useEffect(() => {
-    fetchUserData().then((response) => setUserData(response));
+    client.me().then((response) => setUserData(response));
   }, []);
 
-  if (userData === null) {
-    return <div></div>;
+  if (userData === null || userData === undefined) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   return (
     <div>
       <h1>Home</h1>
       <h2>Hello, {userData.first_name}</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={client.logout}>Logout</button>
     </div>
   );
 };

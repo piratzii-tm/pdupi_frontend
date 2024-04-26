@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuthentication } from "../../../hooks/useAuthentication";
+import { useBackend } from "../../../hooks/useBackend";
 
 const RegisterScreen = () => {
   const [userData, setUserData] = useState({
@@ -12,7 +13,7 @@ const RegisterScreen = () => {
     updated_at: new Date().toString(),
   });
 
-  const { client } = useAuthentication();
+  const { client } = useBackend();
 
   return (
     <form onSubmit={(event) => client.register({ event, userData })}>
