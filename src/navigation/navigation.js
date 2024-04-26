@@ -4,6 +4,7 @@ import RegisterScreen from "./screens/auth/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { useContext } from "react";
 import { AuthenticationProvider } from "../constants/contexts/AuthenticationProvider";
+import { ComponentsScreen } from "./screens/auth/ComponentsScreen";
 
 const Navigation = () => {
   const { isLogged } = useContext(AuthenticationProvider);
@@ -14,6 +15,7 @@ const Navigation = () => {
         <Routes>
           <Route path="/" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/components" element={<ComponentsScreen />} />
         </Routes>
       ) : (
         <Routes>

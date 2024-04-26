@@ -2,6 +2,7 @@ export const Colors = {
   barberry: "#E5DD0E",
   cod_gray: "#111111",
   tuatara: "#2D2D2C",
+  bandicoot: "#84836C",
 };
 
 export const Fonts = {
