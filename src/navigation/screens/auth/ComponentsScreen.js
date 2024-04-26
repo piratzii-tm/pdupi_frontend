@@ -6,6 +6,7 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { KHeader } from "../../../components/KHeader";
 import KClientCard from "../../../components/KClientCard";
 import KTrainerCard from "../../../components/KTrainerCard";
+import KClientClassCard from "../../../components/KClientClassCard";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
@@ -94,6 +95,12 @@ export const ComponentsScreen = () => {
           ora="17:00"
         />
       </div>
+      <text className={"text-2xl font-bold"}>KClientClassCard</text>
+      <KClientClassCard
+        image={require("../../../assets/images/devegion.png")}
+        nume={"Jonny"}
+        prenume={"Bravo"}
+      />
     </body>
   );
 };
