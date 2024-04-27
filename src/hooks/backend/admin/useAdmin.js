@@ -64,10 +64,10 @@ export const useAdmin = () => {
       const response = await fetch(api.admin.addTrainer, {
         method: "POST",
         headers: header.json,
-        body: {
+        body: JSON.stringify({
           first_name,
           last_name,
-        },
+        }),
       });
 
       if (!response.ok) {
@@ -90,14 +90,14 @@ export const useAdmin = () => {
       const response = await fetch(api.admin.addClass, {
         method: "POST",
         headers: header.json,
-        body: {
+        body: JSON.stringify({
           class_name,
           instructor_id,
           max_slots,
           day,
           month,
           starting_hour,
-        },
+        }),
       });
 
       if (!response.ok) {

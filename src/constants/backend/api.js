@@ -10,10 +10,10 @@ export const api = {
     register: client + "register",
     login: client + "login",
     byId: (id) => client + `?user_id=${id}`,
-    all: "all",
+    all: client + "all",
     classes: (id) => client + `classes?client_id=${id}`,
-    join: "join",
-    exit: "exit",
+    join: client + "join",
+    exit: client + "exit",
   },
   admin: {
     me: admin,

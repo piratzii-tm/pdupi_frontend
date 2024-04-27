@@ -1,5 +1,6 @@
 export const header = {
   json: {
+    accept: "application/json",
     "Content-Type": "application/json",
   },
   auth: {

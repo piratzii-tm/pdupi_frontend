@@ -40,10 +40,10 @@ export const useClass = () => {
       const response = await fetch(api.class.byDate, {
         method: "POST",
         headers: header.json,
-        body: {
+        body: JSON.stringify({
           day,
           month,
-        },
+        }),
       });
 
       if (!response.ok) {

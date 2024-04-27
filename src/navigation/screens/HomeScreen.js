@@ -5,18 +5,10 @@ const HomeScreen = () => {
   const [userData, setUserData] = useState(null);
   const { client } = useBackend();
 
+  // !Do not change the dependency, even if a warning appears in the console.
   useEffect(() => {
     client.me().then((response) => setUserData(response));
-  }, [client]);
-
-  if (userData === null || userData === undefined) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-        <button onClick={client.logout}>Logout</button>
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <div>
@@ -27,7 +19,9 @@ const HomeScreen = () => {
           <button onClick={client.logout}>Logout</button>
         </div>
       ) : (
-        <h2>Hello, {userData.first_name}</h2>
+        <div>
+          <h2>Hello, {userData.first_name}</h2>
+        </div>
       )}
       <button onClick={client.logout}>Logout</button>
     </div>

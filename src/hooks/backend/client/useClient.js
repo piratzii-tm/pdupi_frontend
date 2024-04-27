@@ -142,11 +142,11 @@ export const useClient = () => {
       const response = await fetch(api.client.join, {
         method: "POST",
         headers: header.json,
-        body: {
+        body: JSON.stringify({
           client_id,
           day_id,
           class_id,
-        },
+        }),
       });
 
       if (!response.ok) {
@@ -162,11 +162,11 @@ export const useClient = () => {
       const response = await fetch(api.client.exit, {
         method: "POST",
         headers: header.json,
-        body: {
-          client_id,
-          day_id,
-          class_id,
-        },
+        body: JSON.stringify({
+          client_id: client_id,
+          day_id: day_id,
+          class_id: class_id,
+        }),
       });
 
       if (!response.ok) {
