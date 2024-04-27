@@ -25,4 +25,9 @@ export const api = {
     byId: (id) => trainer + `?instructor_id=${id}`,
     all: trainer + "all",
   },
+  class: {
+    byId: (id) => classes + `?gym_id=${id}`,
+    all: classes + "all",
+    byDate: classes + "filtered",
+  },
 };
