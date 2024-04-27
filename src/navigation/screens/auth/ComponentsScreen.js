@@ -4,6 +4,9 @@ import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { KHeader } from "../../../components/KHeader";
+import KClientCard from "../../../components/KClientCard";
+import KTrainerCard from "../../../components/KTrainerCard";
+import KClientClassCard from "../../../components/KClientClassCard";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
@@ -77,6 +80,27 @@ export const ComponentsScreen = () => {
           onChange={setPassword}
         />
       </div>
+      <text className={"text-2xl font-bold"}>KClientCard</text>
+      <div className={"flex flex-col border-0"}>
+        <text>Client card</text>
+        <KClientCard name="Name" status="Active" creationDate="2022/03/18" />
+      </div>
+      <text className={"text-2xl font-bold"}>KTrainerCard</text>
+      <div className={"flex flex-col border-0"}>
+        <text>Trainer card</text>
+        <KTrainerCard
+          className="Pilates class"
+          antrenor="Ciprian Enae"
+          data="2024/07/24"
+          ora="17:00"
+        />
+      </div>
+      <text className={"text-2xl font-bold"}>KClientClassCard</text>
+      <KClientClassCard
+        image={require("../../../assets/images/devegion.png")}
+        nume={"Jonny"}
+        prenume={"Bravo"}
+      />
     </body>
   );
 };
