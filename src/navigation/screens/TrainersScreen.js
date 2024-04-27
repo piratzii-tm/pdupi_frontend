@@ -1,35 +1,37 @@
-import KClientClassCard from "../../components/KClientClassCard";
+import { KClientClassCard } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { images } from "../../assets";
+import { useBackend } from "../../hooks";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { UserTypes } from "../../constants/models/userTypes";
 
 const TrainersScreen = () => {
-  const trainers = [
-    {
-      image: require("../../assets/images/devegion.png"),
-      nume: "Nume",
-      prenume: "Prenume",
-    },
-    {
-      image: require("../../assets/images/devegion.png"),
-      nume: "Nume1",
-      prenume: "Prenume1",
-    },
-    {
-      image: require("../../assets/images/devegion.png"),
-      nume: "Nume2",
-      prenume: "Prenume2",
-    },
-    {
-      image: require("../../assets/images/devegion.png"),
-      nume: "Num3",
-      prenume: "Prenum3",
-    },
-    {
-      image: require("../../assets/images/devegion.png"),
-      nume: "Nume4",
-      prenume: "Prenume4",
-    },
-  ];
+  const { trainer } = useBackend();
+
+  const [trainers, setTrainers] = useState([]);
+  const [userType, setUserType] = useState(null);
+
+  useEffect(() => {
+    setTrainers([]);
+    trainer.all().then((response) => {
+      response.forEach((trainer) => {
+        const newTrainer = {
+          image: images.default,
+          firstName: trainer.first_name,
+          lastName: trainer.last_name,
+        };
+        setTrainers((prevState) => [...prevState, newTrainer]);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const getUserType = async () => await Cookies.get("user");
+    getUserType().then((type) => setUserType(type));
+  }, []);
+
   return (
     <div
       className={
@@ -39,19 +41,21 @@ const TrainersScreen = () => {
       {trainers.map((trainer, index) => (
         <KClientClassCard
           image={trainer.image}
-          nume={trainer.nume}
-          prenume={trainer.prenume}
+          nume={trainer.lastName}
+          prenume={trainer.firstName}
         />
       ))}
       {/*TODO Make this apear only if is an admin*/}
       {/*TODO: Implement plus button logic*/}
-      <button
-        className={
-          "flex absolute bottom-0 right-0 p-10 m-10 rounded-full bg-barberry"
-        }
-      >
-        <FontAwesomeIcon icon={faPlus} />
-      </button>
+      {userType === UserTypes.admin && (
+        <button
+          className={
+            "flex absolute bottom-0 right-0 p-10 m-10 rounded-full bg-barberry"
+          }
+        >
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      )}
     </div>
   );
 };

@@ -1,24 +1,36 @@
 import { useEffect, useState } from "react";
-import { fetchUserData } from "../../constants/helpers/fetchCurrentUser";
-import { useAuthentication } from "../../hooks/useAuthentication";
+import { useBackend } from "../../hooks";
+import Cookies from "js-cookie";
+import { UserTypes } from "../../constants/models/userTypes";
 
 const HomeScreen = () => {
   const [userData, setUserData] = useState(null);
-  const { handleLogout } = useAuthentication();
+  const { client, admin } = useBackend();
 
+  // !Do not change the dependency, even if a warning appears in the console.
   useEffect(() => {
-    fetchUserData().then((response) => setUserData(response));
+    const getUserType = async () => await Cookies.get("user");
+    getUserType().then((type) => {
+      if (type === UserTypes.client) {
+        client.me().then((response) => setUserData(response));
+      } else {
+        admin.me().then((response) => setUserData(response));
+      }
+    });
   }, []);
 
-  if (userData === null) {
-    return <div></div>;
+  if (userData === undefined || userData === null) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   return (
     <div>
-      <h1>Home</h1>
       <h2>Hello, {userData.first_name}</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={client.logout}>Logout</button>
     </div>
   );
 };

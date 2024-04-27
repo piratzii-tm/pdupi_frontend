@@ -1,5 +1,5 @@
-import Navigation from "./navigation/navigation";
-import VerifyAuthentication from "./wrappers/VerifyAuthentication";
+import { Navigation } from "./navigation";
+import { VerifyAuthentication } from "./wrappers";
 
 const App = () => {
   return (

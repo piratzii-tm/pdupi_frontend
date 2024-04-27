@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { AuthenticationProvider } from "../constants/contexts/AuthenticationProvider";
+import { AuthenticationProvider } from "../constants/contexts";
 
 const VerifyAuthentication = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
