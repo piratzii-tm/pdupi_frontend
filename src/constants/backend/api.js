@@ -21,4 +21,8 @@ export const api = {
     addTrainer: admin + "add_trainer",
     addClass: admin + "add_class",
   },
+  trainer: {
+    byId: (id) => trainer + `?instructor_id=${id}`,
+    all: trainer + "all",
+  },
 };
