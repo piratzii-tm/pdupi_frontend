@@ -20,7 +20,7 @@ const KClientClassCard = ({ image, nume = "Nume", prenume = "Prenume" }) => {
       <div className={"flex flex-col justify-between items-center"}>
         <img
           src={image}
-          alt={"image"}
+          alt={"Not something here, isn't it?"}
           className={"rounded-full mx-4 m-2"}
           height={150}
           width={150}

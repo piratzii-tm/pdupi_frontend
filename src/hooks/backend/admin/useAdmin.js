@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { AuthenticationProvider } from "../../../constants/contexts/AuthenticationProvider";
-import { useNavigate } from "react-router-dom";
+import { AuthenticationProvider } from "../../../constants/contexts";
 import { api, header } from "../../../constants/backend";
 import Cookies from "js-cookie";
 

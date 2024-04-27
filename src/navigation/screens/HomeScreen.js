@@ -7,7 +7,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     client.me().then((response) => setUserData(response));
-  }, []);
+  }, [client]);
 
   if (userData === null || userData === undefined) {
     return (

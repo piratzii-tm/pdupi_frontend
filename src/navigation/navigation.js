@@ -5,6 +5,7 @@ import {
   HomeScreen,
   ComponentsScreen,
   TrainersScreen,
+  BackendScreen,
 } from "./screens";
 import { useContext } from "react";
 import { AuthenticationProvider } from "../constants/contexts";
@@ -22,8 +23,9 @@ const Navigation = () => {
       ) : (
         <Routes>
           <Route path={"/"} element={<HomeScreen />} />
-          <Route path="/components" element={<ComponentsScreen />} />
           <Route path={"/trainers"} element={<TrainersScreen />} />
+          <Route path={"/backend"} element={<BackendScreen />} />
+          <Route path="/components" element={<ComponentsScreen />} />
         </Routes>
       )}
     </BrowserRouter>
