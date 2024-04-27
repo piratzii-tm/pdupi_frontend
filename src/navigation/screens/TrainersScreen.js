@@ -1,31 +1,32 @@
-import KClientClassCard from "../../components/KClientClassCard";
+import { KClientClassCard } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { images } from "../../assets";
 
 const TrainersScreen = () => {
   const trainers = [
     {
-      image: require("../../assets/images/devegion.png"),
+      image: images.default,
       nume: "Nume",
       prenume: "Prenume",
     },
     {
-      image: require("../../assets/images/devegion.png"),
+      image: images.default,
       nume: "Nume1",
       prenume: "Prenume1",
     },
     {
-      image: require("../../assets/images/devegion.png"),
+      image: images.default,
       nume: "Nume2",
       prenume: "Prenume2",
     },
     {
-      image: require("../../assets/images/devegion.png"),
+      image: images.default,
       nume: "Num3",
       prenume: "Prenum3",
     },
     {
-      image: require("../../assets/images/devegion.png"),
+      image: images.default,
       nume: "Nume4",
       prenume: "Prenume4",
     },

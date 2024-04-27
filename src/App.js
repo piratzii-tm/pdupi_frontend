@@ -1,7 +1,5 @@
-import Navigation from "./navigation/navigation";
-import VerifyAuthentication from "./wrappers/VerifyAuthentication";
-import { useEffect } from "react";
-import { useAuthentication } from "./hooks/useAuthentication";
+import { Navigation } from "./navigation";
+import { VerifyAuthentication } from "./wrappers";
 
 const App = () => {
   return (

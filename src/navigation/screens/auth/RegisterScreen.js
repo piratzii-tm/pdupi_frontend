@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useAuthentication } from "../../../hooks/useAuthentication";
-import { useBackend } from "../../../hooks/useBackend";
+import { useBackend } from "../../../hooks";
 
 const RegisterScreen = () => {
   const [userData, setUserData] = useState({

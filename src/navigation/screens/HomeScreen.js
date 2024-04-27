@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useBackend } from "../../hooks/useBackend";
+import { useBackend } from "../../hooks";
 
 const HomeScreen = () => {
   const [userData, setUserData] = useState(null);

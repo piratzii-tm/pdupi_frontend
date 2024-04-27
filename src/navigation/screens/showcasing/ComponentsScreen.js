@@ -1,12 +1,15 @@
-import KButton from "../../../components/KButton";
-import KTextInput from "../../../components/KTextInput";
 import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { KHeader } from "../../../components/KHeader";
-import KClientCard from "../../../components/KClientCard";
-import KTrainerCard from "../../../components/KTrainerCard";
-import KClientClassCard from "../../../components/KClientClassCard";
+import {
+  KHeader,
+  KClientCard,
+  KTrainerCard,
+  KClientClassCard,
+  KButton,
+  KTextInput,
+} from "../../../components";
+import { images } from "../../../assets";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
@@ -97,7 +100,7 @@ export const ComponentsScreen = () => {
       </div>
       <text className={"text-2xl font-bold"}>KClientClassCard</text>
       <KClientClassCard
-        image={require("../../../assets/images/devegion.png")}
+        image={images.default}
         nume={"Jonny"}
         prenume={"Bravo"}
       />

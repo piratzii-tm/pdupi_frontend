@@ -1,4 +1,4 @@
-import { api, header } from "../../constants/backend";
+import { api, header } from "../../../constants/backend";
 
 export const useClass = () => {
   const byId = async ({ class_id }) => {

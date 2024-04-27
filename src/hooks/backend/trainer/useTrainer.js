@@ -1,4 +1,4 @@
-import { api, header } from "../../constants/backend";
+import { api, header } from "../../../constants/backend";
 
 export const useTrainer = () => {
   const byId = async ({ instructor_id }) => {
