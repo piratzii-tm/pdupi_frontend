@@ -1,9 +1,9 @@
 import { useClient } from "./client/useClient";
+import { useAdmin } from "./admin/useAdmin";
 
 export const useBackend = () => {
-  const client = useClient();
-
   return {
-    client,
+    client: useClient(),
+    admin: useAdmin(),
   };
 };
