@@ -13,6 +13,7 @@ const HomeScreen = () => {
     return (
       <div>
         <h1>Loading...</h1>
+        <button onClick={client.logout}>Logout</button>
       </div>
     );
   }
@@ -20,7 +21,14 @@ const HomeScreen = () => {
   return (
     <div>
       <h1>Home</h1>
-      <h2>Hello, {userData.first_name}</h2>
+      {!userData ? (
+        <div>
+          <h1>Loading...</h1>
+          <button onClick={client.logout}>Logout</button>
+        </div>
+      ) : (
+        <h2>Hello, {userData.first_name}</h2>
+      )}
       <button onClick={client.logout}>Logout</button>
     </div>
   );

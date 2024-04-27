@@ -52,6 +52,7 @@ export const useClient = () => {
 
       const data = await response.json();
       Cookies.set("token", data.access_token);
+      Cookies.set("user", "client");
       setIsLogged(true);
     } catch (error) {
       console.log(error);

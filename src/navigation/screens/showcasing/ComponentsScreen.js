@@ -16,6 +16,7 @@ export const ComponentsScreen = () => {
   const [password, setPassword] = useState("");
   return (
     <body className={"flex h-full p-4 flex-col bg-gray-500 gap-2"}>
+      <KHeader title="Components samples" />
       <text className={"text-2xl font-bold"}>KHeader</text>
       <KHeader title={"Title"} />
       <KHeader client />
