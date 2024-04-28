@@ -49,7 +49,6 @@ const TrainersScreen = () => {
             prenume={trainer.firstName}
           />
         ))}
-        {/*TODO Make this apear only if is an admin*/}
         {/*TODO: Implement plus button logic*/}
         {userType === UserTypes.admin && (
           <button
