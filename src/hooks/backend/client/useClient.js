@@ -63,6 +63,7 @@ export const useClient = () => {
     Cookies.set("token", null);
     Cookies.set("user", null);
     setIsLogged(false);
+    navigate("/");
   };
 
   const me = async () => {

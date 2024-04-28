@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AuthenticationProvider } from "../../../constants/contexts";
 import { api, header } from "../../../constants/backend";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export const useAdmin = () => {
   const { setIsLogged } = useContext(AuthenticationProvider);
+  const navigate = useNavigate();
 
   const login = async ({ event, email, password }) => {
     event.preventDefault();
@@ -36,6 +38,7 @@ export const useAdmin = () => {
     Cookies.set("token", null);
     Cookies.set("user", null);
     setIsLogged(false);
+    navigate("/");
   };
 
   const me = async () => {

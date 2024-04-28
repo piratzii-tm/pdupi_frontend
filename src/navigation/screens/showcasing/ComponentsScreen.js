@@ -2,7 +2,7 @@ import { useState } from "react";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import {
-  KHeader,
+  KPageTitle,
   KClientCard,
   KTrainerCard,
   KClientClassCard,
@@ -16,11 +16,11 @@ export const ComponentsScreen = () => {
   const [password, setPassword] = useState("");
   return (
     <body className={"flex h-full p-4 flex-col bg-gray-500 gap-2"}>
-      <KHeader title="Components samples" />
+      <KPageTitle title="Components samples" />
       <text className={"text-2xl font-bold"}>KHeader</text>
-      <KHeader title={"Title"} />
-      <KHeader client />
-      <KHeader trainer />
+      <KPageTitle title={"Title"} />
+      <KPageTitle client />
+      <KPageTitle trainer />
 
       <text className={"text-2xl font-bold"}>KButton</text>
       <div className={"flex flex-col"}>

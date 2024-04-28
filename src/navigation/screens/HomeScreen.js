@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useBackend } from "../../hooks";
 import Cookies from "js-cookie";
-import { UserTypes } from "../../constants/models/userTypes";
+import { UserTypes } from "../../constants/models";
+import { KContainer, KHeader, KNavbar } from "../../components";
 
 const HomeScreen = () => {
   const [userData, setUserData] = useState(null);
@@ -21,17 +22,19 @@ const HomeScreen = () => {
 
   if (userData === undefined || userData === null) {
     return (
-      <div>
+      <KContainer>
         <h1>Loading...</h1>
-      </div>
+      </KContainer>
     );
   }
 
   return (
-    <div>
-      <h2>Hello, {userData.first_name}</h2>
-      <button onClick={client.logout}>Logout</button>
-    </div>
+    <KContainer>
+      <KHeader>
+        <KNavbar />
+      </KHeader>
+      <h1 className={"text-8xl text-white"}>Hello, {userData.first_name}</h1>
+    </KContainer>
   );
 };
 

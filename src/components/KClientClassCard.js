@@ -5,7 +5,7 @@ const KClientClassCard = ({ image, nume = "Nume", prenume = "Prenume" }) => {
   return (
     <div
       className={
-        "flex flex-col p-2 justify-between border-4 border-barberry w-fit h-fit rounded-2xl"
+        "flex flex-col p-2 justify-between border-4 border-barberry w-fit h-fit rounded-2xl bg-tuatara"
       }
     >
       {/*TODO: Implement the 3 bunbu logic*/}
