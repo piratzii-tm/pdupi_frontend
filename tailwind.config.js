@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: Fonts,
       backgroundImage: {
         triangleShaped: "url('/src/assets/images/triangleShapedBg.png')",
+        bodyBackground: "url('/src/assets/images/bodyBackground.png')",
       },
     },
   },

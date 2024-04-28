@@ -75,13 +75,13 @@ export const KNavbar = () => {
       </div>
 
       <button
-        className={"block xl:hidden  justify-end align-middle"}
+        className={"block xl:hidden justify-end align-middle"}
         onClick={() => setDrawerActive(true)}
       >
         <FontAwesomeIcon
           icon={faBars}
           color={Colors.barberry}
-          className={"w-20 h-20"}
+          className={"w-10 h-10"}
         />
       </button>
       <Drawer

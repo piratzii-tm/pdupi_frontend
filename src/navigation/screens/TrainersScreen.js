@@ -1,4 +1,10 @@
-import { KClientClassCard, KHeader, KNavbar } from "../../components";
+import {
+  KClientClassCard,
+  KPageTitle,
+  KNavbar,
+  KHeader,
+  KContainer,
+} from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { images } from "../../assets";
@@ -34,15 +40,15 @@ const TrainersScreen = () => {
   }, []);
 
   return (
-    <div>
-      <div className={"w-full h-1/5 bg-triangleShaped bg-cover pb-10"}>
+    <KContainer>
+      <KHeader>
         <KNavbar />
-        <KHeader trainer={true} />
-      </div>
+        <KPageTitle trainer={true} />
+      </KHeader>
 
       <div
         className={
-          "flex flex-row overflow-clip flex-wrap w-full min-h-screen p-5 bg-tuatara gap-6"
+          "flex flex-row overflow-clip flex-wrap w-full min-h-screen p-5 gap-6"
         }
       >
         {trainers.map((trainer, index) => (
@@ -63,7 +69,7 @@ const TrainersScreen = () => {
           </button>
         )}
       </div>
-    </div>
+    </KContainer>
   );
 };
 
