@@ -50,6 +50,7 @@ export const useAdmin = () => {
       });
 
       if (!response.ok) {
+        logout();
         throw new Error("Failed to fetch user data");
       }
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useBackend } from "../../hooks";
 import Cookies from "js-cookie";
-import { UserTypes } from "../../constants/models/userTypes";
+import { UserTypes } from "../../constants/models";
+import { KNavbar } from "../../components";
 
 const HomeScreen = () => {
   const [userData, setUserData] = useState(null);
@@ -28,7 +29,8 @@ const HomeScreen = () => {
   }
 
   return (
-    <div>
+    <div className={"bg-blue-300"}>
+      <KNavbar />
       <h2>Hello, {userData.first_name}</h2>
       <button onClick={client.logout}>Logout</button>
     </div>

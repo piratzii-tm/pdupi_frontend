@@ -4,6 +4,7 @@ import KClientClassCard from "./KClientClassCard";
 import { KHeader } from "./KHeader";
 import KTextInput from "./KTextInput";
 import KTrainerCard from "./KTrainerCard";
+import { KNavbar } from "./KNavbar";
 
 export {
   KHeader,
@@ -12,4 +13,5 @@ export {
   KTextInput,
   KClientClassCard,
   KClientCard,
+  KNavbar,
 };
