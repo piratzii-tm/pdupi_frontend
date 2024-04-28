@@ -7,11 +7,11 @@ import KTrainerCard from "./KTrainerCard";
 import { KNavbar } from "./KNavbar";
 
 export {
-  KHeader,
   KButton,
   KTrainerCard,
   KTextInput,
   KClientClassCard,
   KClientCard,
   KNavbar,
+  KHeader,
 };

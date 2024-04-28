@@ -34,9 +34,12 @@ const TrainersScreen = () => {
   }, []);
 
   return (
-    <div className={"bg-tuatara"}>
-      <KNavbar />
-      <KHeader trainer={true} />
+    <div>
+      <div className={"w-full h-1/5 bg-triangleShaped bg-cover pb-10"}>
+        <KNavbar />
+        <KHeader trainer={true} />
+      </div>
+
       <div
         className={
           "flex flex-row overflow-clip flex-wrap w-full min-h-screen p-5 bg-tuatara gap-6"
