@@ -5,6 +5,9 @@ import {
   HomeScreen,
   ComponentsScreen,
   TrainersScreen,
+  ClientsScreen,
+  ClassesScreen,
+  ProfileScreen,
 } from "./screens";
 import { useContext } from "react";
 import { AuthenticationProvider } from "../constants/contexts";
@@ -23,6 +26,9 @@ const Navigation = () => {
         <Routes>
           <Route path={"/"} element={<HomeScreen />} />
           <Route path={"/trainers"} element={<TrainersScreen />} />
+          <Route path={"/clients"} element={<ClientsScreen />} />
+          <Route path={"/classes"} element={<ClassesScreen />} />
+          <Route path={"/profile"} element={<ProfileScreen />} />
           <Route path="/components" element={<ComponentsScreen />} />
         </Routes>
       )}

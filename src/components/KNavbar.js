@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Colors } from "../constants/theming";
 import { Drawer } from "@mui/material";
 
-export const KNavbar = () => {
+export const KNavbar = ({ shouldHaveRoutes }) => {
   const [userType, setUserType] = useState(null);
   const [drawerActive, setDrawerActive] = useState(false);
 
@@ -70,31 +70,35 @@ export const KNavbar = () => {
       <button onClick={() => navigate("/")}>
         <img alt={"logo"} src={images.logo} className={"w-2/5 sm:w-1/5"} />
       </button>
-      <div className={"hidden xl:flex w-1/3 flex-row justify-between"}>
-        {navigationRoutes()}
-      </div>
-
-      <button
-        className={"block xl:hidden justify-end align-middle"}
-        onClick={() => setDrawerActive(true)}
-      >
-        <FontAwesomeIcon
-          icon={faBars}
-          color={Colors.barberry}
-          className={"w-10 h-10"}
-        />
-      </button>
-      <Drawer
-        open={drawerActive}
-        onClose={() => setDrawerActive(false)}
-        anchor={"right"}
-      >
-        <div className={"px-10 h-full bg-cod_gray"}>
-          <div className={"h-1/2 flex flex-col justify-evenly "}>
+      {(shouldHaveRoutes ?? true) && (
+        <React.Fragment>
+          <div className={"hidden xl:flex w-1/3 flex-row justify-between"}>
             {navigationRoutes()}
           </div>
-        </div>
-      </Drawer>
+
+          <button
+            className={"block xl:hidden justify-end align-middle"}
+            onClick={() => setDrawerActive(true)}
+          >
+            <FontAwesomeIcon
+              icon={faBars}
+              color={Colors.barberry}
+              className={"w-10 h-10"}
+            />
+          </button>
+          <Drawer
+            open={drawerActive}
+            onClose={() => setDrawerActive(false)}
+            anchor={"right"}
+          >
+            <div className={"px-10 h-full bg-cod_gray"}>
+              <div className={"h-1/2 flex flex-col justify-evenly "}>
+                {navigationRoutes()}
+              </div>
+            </div>
+          </Drawer>
+        </React.Fragment>
+      )}
     </div>
   );
 };
