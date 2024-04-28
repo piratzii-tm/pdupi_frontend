@@ -5,10 +5,10 @@ const KTextInput = ({ icon, placeholder, password, value, onChange }) => {
   return (
     <div
       className={
-        "flex flex-row items-center px-2 gap-1 rounded-md w-72 bg-white border-2 border-barberry "
+        "flex flex-row items-center px-5 py-1 gap-1 rounded-xl w-72 bg-white border-2 border-barberry "
       }
     >
-      <FontAwesomeIcon icon={icon} className={"size-6 text-bandicoot"} />
+      <FontAwesomeIcon icon={icon} className={"size-5 text-bandicoot"} />
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}

@@ -1,6 +1,10 @@
 export const KHeader = ({ children }) => {
   return (
-    <div className={"w-full h-1/5 bg-triangleShaped bg-cover"}>
+    <div
+      className={
+        "w-full h-1/5 bg-triangleShaped bg-center bg-no-repeat bg-cover"
+      }
+    >
       {children}
       <div className={"flex h-10"}></div>
       <div className={"flex h-5 bg-barberry"}></div>

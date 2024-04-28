@@ -1,4 +1,4 @@
-const Footer = () => {
+const KFooter = () => {
   return (
     <footer>
       <div className={"flex h-5 bg-barberry"}></div>
@@ -20,4 +20,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default KFooter;
