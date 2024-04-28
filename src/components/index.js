@@ -7,6 +7,7 @@ import KTrainerCard from "./KTrainerCard";
 import { KNavbar } from "./KNavbar";
 import { KHeader } from "./KHeader";
 import { KContainer } from "./KContainer";
+import KFooter from "./KFooter";
 
 export {
   KButton,
@@ -18,4 +19,5 @@ export {
   KPageTitle,
   KHeader,
   KContainer,
+  KFooter,
 };
