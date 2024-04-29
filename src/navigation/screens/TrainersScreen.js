@@ -25,7 +25,7 @@ const TrainersScreen = () => {
     trainer.all().then((response) => {
       response.forEach((trainer) => {
         const newTrainer = {
-          image: images.default,
+          image: `https://source.unsplash.com/random/500x500?sig=${response.indexOf(trainer)}`,
           firstName: trainer.first_name,
           lastName: trainer.last_name,
         };
