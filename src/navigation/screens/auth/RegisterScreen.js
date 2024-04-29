@@ -16,9 +16,8 @@ const RegisterScreen = () => {
     created_at: new Date().toString(),
     updated_at: new Date().toString(),
   });
-  const [userType, setUserType] = useState(null);
 
-  const { client, admin } = useBackend();
+  const { client } = useBackend();
   const navigate = useNavigate();
 
   return (

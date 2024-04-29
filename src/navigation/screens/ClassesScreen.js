@@ -1,4 +1,10 @@
-import { KContainer, KHeader, KNavbar, KPageTitle } from "../../components";
+import {
+  KCalendar,
+  KContainer,
+  KHeader,
+  KNavbar,
+  KPageTitle,
+} from "../../components";
 
 const ClassesScreen = () => {
   return (
@@ -7,6 +13,9 @@ const ClassesScreen = () => {
         <KNavbar />
         <KPageTitle classes={true} />
       </KHeader>
+      <div className={"p-20"}>
+        <KCalendar />
+      </div>
     </KContainer>
   );
 };

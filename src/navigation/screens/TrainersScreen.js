@@ -7,7 +7,6 @@ import {
 } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { images } from "../../assets";
 import { useBackend } from "../../hooks";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
