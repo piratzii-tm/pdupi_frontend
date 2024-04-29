@@ -1,4 +1,4 @@
-export const KPageTitle = ({ title = "Client", trainer, classes }) => {
+export const KPageTitle = ({ title = "Clients", trainer, classes }) => {
   return trainer ? (
     <div className={"flex flex-col px-10 "}>
       <text className={"text-white text-8xl font-koulen"}>Trainers</text>
