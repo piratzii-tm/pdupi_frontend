@@ -5,7 +5,7 @@ const ClientsScreen = () => {
     <KContainer>
       <KHeader>
         <KNavbar />
-        <KPageTitle client={true} />
+        <KPageTitle />
       </KHeader>
     </KContainer>
   );

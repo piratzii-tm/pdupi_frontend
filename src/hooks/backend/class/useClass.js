@@ -47,7 +47,7 @@ export const useClass = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Something went wrong");
+        return [];
       }
 
       return await response.json();
@@ -56,9 +56,26 @@ export const useClass = () => {
     }
   };
 
+  const byMonth = async ({ month }) => {
+    try {
+      const response = await fetch(api.class.byMonth(month), {
+        method: "GET",
+        headers: header.json,
+      });
+
+      if (!response.ok) {
+        return [];
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return {
     byId,
     all,
     byDate,
+    byMonth,
   };
 };

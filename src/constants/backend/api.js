@@ -29,5 +29,6 @@ export const api = {
     byId: (id) => classes + `?gym_id=${id}`,
     all: classes + "all",
     byDate: classes + "filtered",
+    byMonth: (month) => classes + `month?month=${month}`,
   },
 };

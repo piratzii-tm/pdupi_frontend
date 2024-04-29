@@ -8,6 +8,9 @@ import { KNavbar } from "./KNavbar";
 import { KHeader } from "./KHeader";
 import { KContainer } from "./KContainer";
 import KFooter from "./KFooter";
+import { KCalendar } from "./KCalendar";
+import { KColumn } from "./KColumn";
+import { KHours } from "./KHours";
 
 export {
   KButton,
@@ -20,4 +23,7 @@ export {
   KHeader,
   KContainer,
   KFooter,
+  KCalendar,
+  KColumn,
+  KHours,
 };
