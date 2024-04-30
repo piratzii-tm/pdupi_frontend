@@ -1,6 +1,8 @@
 export const KColumn = ({ day }) => {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  const isCurrentDay = new Date(day.date).getDate() === new Date().getDate();
+  const isCurrentDay =
+    new Date(day.date).getDate() === new Date().getDate() &&
+    new Date(day.date).getMonth() === new Date().getMonth();
 
   return (
     <div>
