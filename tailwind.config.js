@@ -9,6 +9,8 @@ module.exports = {
       backgroundImage: {
         triangleShaped: "url('/src/assets/images/triangleShapedBg.png')",
         bodyBackground: "url('/src/assets/images/bodyBackground.png')",
+        homeSectionBackground:
+          "url('/src/assets/images/homeSectionBackground.png')",
       },
     },
   },

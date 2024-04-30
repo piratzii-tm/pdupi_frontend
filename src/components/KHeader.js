@@ -1,4 +1,4 @@
-export const KHeader = ({ children }) => {
+export const KHeader = ({ children, spaceBeforeLine = true }) => {
   return (
     <div
       className={
@@ -6,8 +6,8 @@ export const KHeader = ({ children }) => {
       }
     >
       {children}
-      <div className={"flex h-10"}></div>
-      <div className={"flex h-5 bg-barberry"}></div>
+      {spaceBeforeLine && <div className={"flex h-10"}></div>}
+      <div className={"flex h-4 bg-barberry"}></div>
     </div>
   );
 };
