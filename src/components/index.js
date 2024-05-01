@@ -8,6 +8,8 @@ import { KNavbar } from "./KNavbar";
 import { KHeader } from "./KHeader";
 import { KContainer } from "./KContainer";
 import KFooter from "./KFooter";
+import KSelect from "./KSelect";
+import KClassModal from "./KClassModal";
 
 export {
   KButton,
@@ -20,4 +22,6 @@ export {
   KHeader,
   KContainer,
   KFooter,
+  KSelect,
+  KClassModal,
 };

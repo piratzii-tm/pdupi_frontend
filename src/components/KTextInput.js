@@ -1,12 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const KTextInput = ({ icon, placeholder, password, value, onChange }) => {
+const KTextInput = ({ icon, placeholder, password, value, onChange, fill }) => {
   return (
     <div
-      className={
-        "flex flex-row items-center px-5 py-1 gap-1 rounded-xl w-72 bg-white border-2 border-barberry "
-      }
+      className={`flex flex-row items-center px-5 py-1 gap-1 rounded-xl bg-white border-2 border-barberry ${fill ? "" : "w-72"}`}
     >
       <FontAwesomeIcon icon={icon} className={"size-5 text-bandicoot"} />
       <input
@@ -15,7 +13,7 @@ const KTextInput = ({ icon, placeholder, password, value, onChange }) => {
         placeholder={placeholder}
         type={password ? "password" : ""}
         className={
-          "w-full p-2 font-montserrat text-sm text-cod_gray placeholder-bandicoot border-0 focus:outline-none"
+          "w-full p-2 font-montserrat text-sm text-mineshaft placeholder-bandicoot border-0 focus:outline-none"
         }
       />
     </div>

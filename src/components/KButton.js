@@ -15,7 +15,7 @@ const KButton = ({
       type={submit ? "submit" : "button"}
     >
       <text
-        className={`font-montserrat font-semibold text-xl ${large ? (transparent ? "text-barberry" : "text-white") : "text-cod_gray"}`}
+        className={`font-montserrat font-semibold text-xl ${large ? (transparent ? "text-barberry" : "text-white") : "text-mineshaft"}`}
       >
         {title}
       </text>
