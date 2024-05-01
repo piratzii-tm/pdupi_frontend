@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useBackend } from "../../../hooks";
 import { KButton, KHeader, KNavbar, KTextInput } from "../../../components";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import { UserTypes } from "../../../constants/models";
 
 const LoginScreen = () => {
