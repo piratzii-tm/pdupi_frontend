@@ -1,13 +1,13 @@
 import { KButton, KSelect, KTextInput } from "./index";
 import { useEffect, useState } from "react";
-import { useTrainer } from "../hooks/backend/trainer/useTrainer";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { useBackend } from "../hooks";
 
 const KClassModal = ({ setIsOpen }) => {
   const [className, setClassName] = useState();
 
-  const trainerHook = useTrainer();
+  const { trainer } = useBackend();
   const [trainers, setTrainers] = useState([]);
   const [selectedTrainerId, setSelectedTrainerId] = useState();
 
@@ -35,7 +35,7 @@ const KClassModal = ({ setIsOpen }) => {
 
   useEffect(() => {
     const getTrainers = async () => {
-      const dbTrainers = await trainerHook.all();
+      const dbTrainers = await trainer.all();
       setTrainers(
         dbTrainers.map((dbTrainer) => {
           return {
@@ -56,7 +56,12 @@ const KClassModal = ({ setIsOpen }) => {
             Add Class
           </text>
           <div className="space-y-4">
-            <KTextInput placeholder="Class name" onChange={setClassName} fill />
+            <KTextInput
+              placeholder="Class name"
+              onChange={setClassName}
+              fill
+              value={className}
+            />
             <KSelect
               placeholder="Instructor"
               options={trainers}
@@ -81,7 +86,12 @@ const KClassModal = ({ setIsOpen }) => {
                 },
               }}
             />
-            <KTextInput placeholder="Capacity" onChange={setCapacity} fill />
+            <KTextInput
+              placeholder="Capacity"
+              onChange={setCapacity}
+              fill
+              value={capacity}
+            />
           </div>
           <div className="flex space-x-9">
             <KButton
