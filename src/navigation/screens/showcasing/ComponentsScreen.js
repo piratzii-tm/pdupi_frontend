@@ -8,12 +8,14 @@ import {
   KClientClassCard,
   KButton,
   KTextInput,
+  KClassModal,
 } from "../../../components";
 import { images } from "../../../assets";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <body className={"flex h-full p-4 flex-col bg-gray-500 gap-2"}>
       <KPageTitle title="Components samples" />
@@ -105,6 +107,11 @@ export const ComponentsScreen = () => {
         nume={"Jonny"}
         prenume={"Bravo"}
       />
+      <div className={"flex flex-col"}>
+        <text>Class Modal</text>
+        <KButton title={"Open Modal"} onClick={() => setIsOpen(true)} large />
+        {isOpen && <KClassModal setIsOpen={setIsOpen} />}
+      </div>
     </body>
   );
 };

@@ -15,7 +15,7 @@ const KButton = ({
       type={submit ? "submit" : "button"}
     >
       <text
-        className={`font-koulen text-xl ${large ? (transparent ? "text-barberry" : "text-white") : "text-cod_gray"}`}
+        className={`font-koulen text-xl ${large ? (transparent ? "text-barberry" : "text-white") : "text-mineshaft"}`}
       >
         {title}
       </text>

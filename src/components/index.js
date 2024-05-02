@@ -11,6 +11,8 @@ import KFooter from "./KFooter";
 import { KCalendar } from "./KCalendar";
 import { KColumn } from "./KColumn";
 import { KHours } from "./KHours";
+import KSelect from "./KSelect";
+import KClassModal from "./KClassModal";
 
 export {
   KButton,
@@ -26,4 +28,6 @@ export {
   KCalendar,
   KColumn,
   KHours,
+  KSelect,
+  KClassModal,
 };
