@@ -4,9 +4,8 @@ import {
   KNavbar,
   KHeader,
   KContainer,
+  KPlusButton,
 } from "../../components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useBackend } from "../../hooks";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -59,13 +58,11 @@ const TrainersScreen = () => {
         ))}
         {/*TODO: Implement plus button logic*/}
         {userType === UserTypes.admin && (
-          <button
-            className={
-              "flex absolute bottom-0 right-0 p-10 m-10 rounded-full bg-barberry"
-            }
-          >
-            <FontAwesomeIcon icon={faPlus} />
-          </button>
+          <KPlusButton
+            onClick={() => {
+              console.log("Modal");
+            }}
+          />
         )}
       </div>
     </KContainer>

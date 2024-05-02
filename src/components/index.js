@@ -13,6 +13,8 @@ import { KColumn } from "./KColumn";
 import { KHours } from "./KHours";
 import KSelect from "./KSelect";
 import KClassModal from "./KClassModal";
+import KTrainerModal from "./KTrainerModal";
+import KPlusButton from "./KPlusButton";
 
 export {
   KButton,
@@ -30,4 +32,6 @@ export {
   KHours,
   KSelect,
   KClassModal,
+  KTrainerModal,
+  KPlusButton,
 };
