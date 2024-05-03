@@ -9,13 +9,17 @@ import {
   KButton,
   KTextInput,
   KClassModal,
+  KTrainerModal,
+  KPlusButton,
 } from "../../../components";
 import { images } from "../../../assets";
 
 export const ComponentsScreen = () => {
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [isClassModalOpen, setIsClassModalOpen] = useState(false);
+  const [isTrainerModalOpen, setIsTrainerModalOpen] = useState(false);
+
   return (
     <body className={"flex h-full p-4 flex-col bg-gray-500 gap-2"}>
       <KPageTitle title="Components samples" />
@@ -108,9 +112,25 @@ export const ComponentsScreen = () => {
         prenume={"Bravo"}
       />
       <div className={"flex flex-col"}>
-        <text>Class Modal</text>
-        <KButton title={"Open Modal"} onClick={() => setIsOpen(true)} large />
-        {isOpen && <KClassModal setIsOpen={setIsOpen} />}
+        <text>Add Class Modal</text>
+        <KButton
+          title={"Open Class Modal"}
+          onClick={() => setIsClassModalOpen(true)}
+          large
+        />
+        {isClassModalOpen && <KClassModal setIsOpen={setIsClassModalOpen} />}
+      </div>
+      <div className={"flex"}>
+        <text>Add Trainer Modal</text>
+        <KPlusButton onClick={() => setIsTrainerModalOpen(true)} rel />
+        {isTrainerModalOpen && (
+          <KTrainerModal
+            setIsOpen={setIsTrainerModalOpen}
+            onSave={() => {
+              console.log("save");
+            }}
+          />
+        )}
       </div>
     </body>
   );
