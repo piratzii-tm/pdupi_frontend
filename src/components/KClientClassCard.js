@@ -5,14 +5,13 @@ const KClientClassCard = ({ image, nume = "Nume", prenume = "Prenume" }) => {
   return (
     <div
       className={
-        "flex flex-col p-2 justify-between border-4 border-barberry w-fit h-fit rounded-2xl bg-tuatara"
+        "flex flex-col  justify-between border-4 border-barberry w-fit h-fit rounded-2xl bg-tuatara mx-6 my-6"
       }
     >
-      {/*TODO: Implement the 3 bunbu logic*/}
       <button
-        className={"self-end text-barberry"}
+        className={"self-end text-barberry px-2"}
         onClick={() => {
-          console.log("3 bumbi");
+          window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
         }}
       >
         <FontAwesomeIcon icon={faEllipsis} />

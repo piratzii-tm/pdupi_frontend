@@ -4,7 +4,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useBackend } from "../hooks";
 
-const KClassModal = ({ setIsOpen }) => {
+const KClassModal = ({ setIsOpen, onSave }) => {
   const [className, setClassName] = useState();
 
   const { trainer } = useBackend();
@@ -96,9 +96,15 @@ const KClassModal = ({ setIsOpen }) => {
           <div className="flex space-x-9">
             <KButton
               title="Save"
-              onClick={() => {
-                console.log("Save");
-              }}
+              onClick={() =>
+                onSave(
+                  className,
+                  selectedTrainerId,
+                  selectedDay,
+                  selectedHour,
+                  capacity,
+                )
+              }
             />
             <KButton
               title="Cancel"
