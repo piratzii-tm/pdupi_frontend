@@ -1,8 +1,34 @@
+import { useEffect, useState } from "react";
+import { KClassModal } from "./index";
+import KJoinClass from "./KJoinClass";
+import { useBackend } from "../hooks";
+import Cookies from "js-cookie";
+import { UserTypes } from "../constants/models";
+
 export const KColumn = ({ day }) => {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const isCurrentDay =
     new Date(day.date).getDate() === new Date().getDate() &&
     new Date(day.date).getMonth() === new Date().getMonth();
+
+  const [userType, setUserType] = useState();
+  const { client } = useBackend();
+
+  useEffect(() => {
+    const getUserType = async () => await Cookies.get("user");
+    getUserType().then((type) => setUserType(type));
+  }, []);
+
+  const [isJoinClassModalOpen, setIsJoinClassModalOpen] = useState(false);
+  const [classId, setClassId] = useState(null);
+  const [dayId, setDayId] = useState(null);
+
+  useEffect(() => {
+    document.body.style.overflow = isJoinClassModalOpen ? "hidden" : "scroll";
+    if (isJoinClassModalOpen) {
+      window.scrollTo(0, 0);
+    }
+  }, [isJoinClassModalOpen]);
 
   return (
     <div>
@@ -49,7 +75,11 @@ export const KColumn = ({ day }) => {
               <button
                 className={isFull ? occupiedStyle : defaultStyle}
                 onClick={() => {
-                  //TODO open modal for client
+                  setIsJoinClassModalOpen(true);
+                  if (!isFull) {
+                    setClassId(classOfHour.class.id);
+                    setDayId(classOfHour.day_id);
+                  }
                 }}
               >
                 <text className={isFull ? occupiedText : defaultText}>
@@ -67,6 +97,33 @@ export const KColumn = ({ day }) => {
           </div>
         );
       })}
+      {userType === UserTypes.client && (
+        <div>
+          {isJoinClassModalOpen && (
+            <div
+              className={
+                "h-screen w-screen bg-black opacity-70 absolute top-0 left-0"
+              }
+            ></div>
+          )}
+          {isJoinClassModalOpen && (
+            <KJoinClass
+              setIsOpen={setIsJoinClassModalOpen}
+              onSave={() => {
+                client.me().then((me) =>
+                  client
+                    .join({
+                      client_id: me.id,
+                      day_id: dayId,
+                      class_id: classId,
+                    })
+                    .then(() => setIsJoinClassModalOpen(false)),
+                );
+              }}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };

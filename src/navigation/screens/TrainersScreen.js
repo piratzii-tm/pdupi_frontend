@@ -5,6 +5,7 @@ import {
   KHeader,
   KContainer,
   KPlusButton,
+  KTrainerModal,
 } from "../../components";
 import { useBackend } from "../../hooks";
 import { useEffect, useState } from "react";
@@ -13,10 +14,19 @@ import { UserTypes } from "../../constants/models";
 import React from "react";
 
 const TrainersScreen = () => {
-  const { trainer } = useBackend();
+  const { trainer, admin } = useBackend();
 
   const [trainers, setTrainers] = useState([]);
   const [userType, setUserType] = useState(null);
+
+  const [isTrainersModalOpen, setIsTrainersModalOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isTrainersModalOpen ? "hidden" : "scroll";
+    if (isTrainersModalOpen) {
+      window.scrollTo(0, 0);
+    }
+  }, [isTrainersModalOpen]);
 
   useEffect(() => {
     setTrainers([]);
@@ -44,11 +54,7 @@ const TrainersScreen = () => {
         <KPageTitle trainer={true} />
       </KHeader>
 
-      <div
-        className={
-          "flex flex-row overflow-clip flex-wrap w-full min-h-screen p-5 gap-6"
-        }
-      >
+      <div className={"flex flex-row overflow-clip flex-wrap w-full"}>
         {trainers.map((trainer, index) => (
           <KClientClassCard
             image={trainer.image}
@@ -56,15 +62,25 @@ const TrainersScreen = () => {
             prenume={trainer.firstName}
           />
         ))}
-        {/*TODO: Implement plus button logic*/}
         {userType === UserTypes.admin && (
-          <KPlusButton
-            onClick={() => {
-              console.log("Modal");
-            }}
-          />
+          <KPlusButton onClick={() => setIsTrainersModalOpen(true)} />
         )}
       </div>
+
+      {isTrainersModalOpen && (
+        <div
+          className={"h-full w-full bg-black opacity-70 absolute top-0"}
+        ></div>
+      )}
+      {isTrainersModalOpen && (
+        <KTrainerModal
+          setIsOpen={setIsTrainersModalOpen}
+          onSave={(firstName, lastName) => {
+            admin.addTrainer({ first_name: firstName, last_name: lastName });
+            setIsTrainersModalOpen(false);
+          }}
+        />
+      )}
     </KContainer>
   );
 };

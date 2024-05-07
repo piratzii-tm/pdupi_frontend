@@ -1,6 +1,7 @@
 import {
   KButton,
   KCalendar,
+  KClassModal,
   KContainer,
   KHeader,
   KNavbar,
@@ -9,13 +10,25 @@ import {
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { UserTypes } from "../../constants/models";
+import { useBackend } from "../../hooks";
 
 const ClassesScreen = () => {
   const [userType, setUserType] = useState();
+  const [isAddClassModalOpen, setIsAddClassModalOpen] = useState(false);
+  const { admin } = useBackend();
+
   useEffect(() => {
     const getUserType = async () => await Cookies.get("user");
     getUserType().then((type) => setUserType(type));
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isAddClassModalOpen ? "hidden" : "scroll";
+    if (isAddClassModalOpen) {
+      window.scrollTo(0, 0);
+    }
+  }, [isAddClassModalOpen]);
+
   return (
     <KContainer>
       <KHeader>
@@ -30,11 +43,38 @@ const ClassesScreen = () => {
           <KButton
             title={"Add class"}
             onClick={() => {
-              //TODO Open modal for adding a class
+              setIsAddClassModalOpen(true);
             }}
           />
         )}
       </div>
+      {isAddClassModalOpen && (
+        <div
+          className={"h-full w-full bg-black opacity-70 absolute top-0"}
+        ></div>
+      )}
+      {isAddClassModalOpen && (
+        <KClassModal
+          setIsOpen={setIsAddClassModalOpen}
+          onSave={(
+            className,
+            selectedTrainerId,
+            selectedDay,
+            selectedHour,
+            capacity,
+          ) => {
+            admin.addClass({
+              class_name: className,
+              instructor_id: selectedTrainerId,
+              max_slots: capacity,
+              day: new Date(selectedDay).getDate(),
+              month: new Date(selectedDay).getMonth() + 1,
+              starting_hour: selectedHour,
+            });
+            setIsAddClassModalOpen(false);
+          }}
+        />
+      )}
     </KContainer>
   );
 };

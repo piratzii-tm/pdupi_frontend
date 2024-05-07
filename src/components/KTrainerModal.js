@@ -30,7 +30,7 @@ const KTrainerModal = ({ setIsOpen, onSave }) => {
           />
         </div>
         <div className="flex space-x-9">
-          <KButton title="Save" onClick={onSave} />
+          <KButton title="Save" onClick={() => onSave(firstName, lastName)} />
           <KButton
             title="Cancel"
             transparent

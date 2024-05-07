@@ -24,11 +24,14 @@ const ProfileScreen = () => {
               const { first_name, last_name } = await trainer.byId({
                 instructor_id: dbClassClient.class.instructor_id,
               });
+              console.log(dbClassClient);
               return {
                 trainer: `${first_name} ${last_name}`,
                 className: dbClassClient.class.class_name,
                 day: `${dbClassClient.day.day}/${dbClassClient.day.month}/2024`,
                 start_hour: `${dbClassClient.day.starting_hour}:00`,
+                day_id: dbClassClient.day.id,
+                class_id: dbClassClient.class.id,
               };
             }),
           ),
@@ -57,6 +60,8 @@ const ProfileScreen = () => {
                 antrenor={client.trainer}
                 data={client.day}
                 ora={client.start_hour}
+                class_id={client.class_id}
+                day_id={client.day_id}
               />
             </li>
           ))}
