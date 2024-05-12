@@ -1,4 +1,4 @@
-# # Practica dezvoltării unui proiect IT → Frontend Repo
+# Practica dezvoltării unui proiect IT → Frontend Repo
 
 ### How to run it?
 1. Be sure you have cloned the backend repository and followed the instructions for starting the FastAPI server.
