@@ -7,8 +7,8 @@ const KTrainerModal = ({ setIsOpen, onSave }) => {
   const [lastName, setLastName] = useState("");
 
   return (
-    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/12 bg-white rounded-[2.3rem] p-16 ">
-      <div className="flex flex-col space-y-9 items-center">
+    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-[2.3rem] ">
+      <div className="flex flex-col space-y-9 items-center px-16 py-8">
         <text className="text-[4rem] font-medium font-mohave text-mineshaft text-center">
           Add Trainer
         </text>
@@ -29,7 +29,7 @@ const KTrainerModal = ({ setIsOpen, onSave }) => {
             icon={faUser}
           />
         </div>
-        <div className="flex space-x-9">
+        <div className="flex flex-wrap flex-col items-center space-y-4">
           <KButton title="Save" onClick={() => onSave(firstName, lastName)} />
           <KButton
             title="Cancel"
